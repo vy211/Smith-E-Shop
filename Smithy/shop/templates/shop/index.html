@@ -1,0 +1,248 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="home" id="home">
+
+    <div class="image">
+        <img src="{% static 'shop/image/logo3.png'%}" alt="">
+    </div>
+
+    <div class="content">
+        <span>Iron's and Cooper's</span>
+        <h3>your daily need products</h3>
+        <a href="#" class="btn">get started</a>
+    </div>
+
+</section>
+
+
+
+<section class="banner-container">
+
+    <div class="banner">
+        <img src="images/hammer.png" alt="">
+        <div class="content">
+            <h3>special offer</h3>
+            <p>upto 45% off</p>
+            <a href="#" class="btn">check out</a>
+        </div>
+    </div>
+
+    <div class="banner">
+        <img src="images/banner-2.jpg" alt="">
+        <div class="content">
+            <h3>limited offer</h3>
+            <p>upto 50% off</p>
+            <a href="#" class="btn">check out</a>
+        </div>
+    </div>
+
+</section>
+
+
+
+<section class="category" id="category">
+
+    <h1 class="heading">shop by <span>category</span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>Tools</h3>
+            <p>upto 50% off</p>
+            <img src="images/tools/Hammer.png" alt="">
+            <a href="{% url 'shop:tools' %}" class="btn">shop now</a>
+        </div>
+        <div class="box">
+            <h3>Agriculture</h3>
+            <p>upto 44% off</p>
+            <img src="images/agriculture/Pickaxe.png" alt="">
+            <a href="{% url 'shop:agriculture' %}" class="btn">shop now</a>
+        </div>
+        <div class="box">
+            <h3>Weapones</h3>
+            <p>upto 35% off</p>
+            <img src="images/weapons/Club Weapon.png" alt="">
+            <a href="{% url 'shop:weapones' %}" class="btn">shop now</a>
+        </div>
+        <div class="box">
+            <h3>Utensils</h3>
+            <p>upto 12% off</p>
+            <img src="images/Utensils/stainless-steel-utensils-06-500x500-removebg-preview.png" alt="">
+            <a href="{% url 'shop:utensils' %}" class="btn">shop now</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="product" id="product">
+
+    <h1 class="heading">latest <span>products</span></h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <span class="discount">-33%</span>
+
+            <img src="images/tools/Hammer.png" alt="">
+            <h3>Hammer</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+        <div class="box">
+            <span class="discount">-45%</span>
+
+            <img src="images/Utensils/kuber-industries-plain-pure-copper-water-bottle1ltr-set-of-2-brown-kubmart11565-141523_l-removebg-preview.png"
+                alt="">
+            <h3>Cooper Bottle</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+        <div class="box">
+            <span class="discount">-52%</span>
+
+            <img src="images/weapons/Sword.png" alt="">
+            <h3>Sword</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+        <div class="box">
+            <span class="discount">-13%</span>
+
+            <img src="images/product-4.png" alt="">
+            <h3>AK 47</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+        <div class="box">
+            <span class="discount">-20%</span>
+
+            <img src="images/product-5.png" alt="">
+            <h3>Mini Guns</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+        <div class="box">
+            <span class="discount">-29%</span>
+
+            <img src="images/product-6.png" alt="">
+            <h3>Spade</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+        <div class="box">
+            <span class="discount">-55%</span>
+
+            <img src="images/product-7.png" alt="">
+            <h3>Nibbler</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+        <div class="box">
+            <span class="discount">-30%</span>
+
+            <img src="images/product-8.png" alt="">
+            <h3>scissors</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+        <div class="box">
+            <span class="discount">-40%</span>
+
+            <img src="images/product-9.png" alt="">
+            <h3>Knife</h3>
+
+            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+
+            </div>
+            <a href="#" class="btn">add to cart</a>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<section class="contact" id="contact">
+
+    <h1 class="heading"> <span>contact</span> us </h1>
+
+    <form action="">
+
+        <div class="inputBox">
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+        </div>
+
+        <div class="inputBox">
+            <input type="number" placeholder="Number">
+            <input type="text" placeholder="Subject">
+        </div>
+
+        <textarea placeholder="Message" name="" id="" cols="30" rows="10"></textarea>
+
+        <input type="submit" value="send message" class="btn">
+
+    </form>
+
+</section>
+{% endblock %}

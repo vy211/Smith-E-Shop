@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blacksmiths First Online Shop.</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'shop/style.css'%}">
+
+</head>
+
+<body>
+
+
+
+    <header>
+
+        <div class="header-1">
+
+            <a href="{% url 'shop:index'%}" class="logo"><i class='fas fa-hammer' style='font-size:36px'></i>Smithy</a>
+        </div>
+
+        <div class="header-2">
+
+            <div id="menu-bar" class="fas fa-bars"></div>
+
+            <nav class="navbar">
+                <a href="{% url 'shop:index'%}">home</a>
+                <a href="#category">category</a>
+                <a href="#product">product</a>
+                <a href="#contact">contact</a>
+                <a href="{% url 'shop:login'%}" target="_blank">login/signup for Seller</a>
+                <a href="{% url 'shop:login'%}" target="_blank">login/signup for Buyer</a>
+            </nav>
+
+            <div class="icons">
+                <a href="#" class="fas fa-shopping-cart"></a>
+                <a href="#" class="fas fa-heart"></a>
+                <a href="#" class="fas fa-user-circle"></a>
+            </div>
+
+        </div>
+
+    </header>
+
+    {% block content %}
+    
+    {% endblock  %}
+
+
+
+
+    <!-- custom js file link  -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
