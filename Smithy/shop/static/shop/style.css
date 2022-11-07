@@ -148,6 +148,15 @@ section{
 .header-2 .icons a:hover{
   color:var(--green);
 }
+.dropdown-menu a{
+  font-size: 2.5rem;
+  color:var(--black);
+  padding-left: 1rem;
+}
+
+.dropdown-menu a:hover{
+  color:var(--green);
+}
 
 #menu-bar{
   font-size: 3rem;

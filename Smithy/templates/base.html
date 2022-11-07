@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" />
-</head>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-    crossorigin="anonymous"></script>
-
-<link rel="stylesheet" href="{% static 'shop/style.css'%}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   
+        <link rel="stylesheet" href="{% static 'shop/style.css'%}">
 
 </head>
 
@@ -49,194 +48,17 @@
             <div class="icons">
                 <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="fas fa-shopping-cart"></a>
                 <a href="#" class="fas fa-heart"></a>
-                <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="fas fa-user-circle"></a>
-
-                
-                <!-- Login and signup -->
-                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
-                                <li class="nav-item" role="presentation">
-                                    <a class="nav-link active" id="tab-login" data-bs-toggle="pill"
-                                        href="#pills-login">Login</a>
-                                </li>
-                                <li class="nav-item" >
-                                    <a class="nav-link" id="tab-register" data-bs-toggle="pill"
-                                        href="#pills-register">Register</a>
-                                </li>
-                            </ul>
-                            <!-- Pills navs -->
-
-                            <!-- Pills content -->
-                            <div class="tab-content">
-                                <div class="tab-pane fade  active" id="pills-login" role="tabpanel"
-                                    aria-labelledby="tab-login">
-                                    <form>
-                                        <div class="mb-4">
-                                            <label for="username" class="form-label">Username/Email</label>
-                                            <input type="text" class="form-control" id="username" required />
-                                        </div>
-                                        <div class="mb-4">
-                                            <label for="password" class="form-label">Password</label>
-                                            <input type="password" class="form-control" id="password" required />
-                                        </div>
-                                        <div class="mb-4">
-                                            <input type="checkbox" class="form-check-input" id="remember" />
-                                            <label for="remember" class="form-label">Remember Me</label>
-                                        </div>
-                                        <div class="d-grid">
-                                            <button type="submit" class="btn text-light main-bg">Login</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane fade" id="pills-register" role="tabpanel"
-                                    aria-labelledby="tab-register">
-                                    <form method='POST'>
-                                        {% csrf_token %}
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example1cg" name='user_name'>User Name</label>
-                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                                                required />
-                                        </div>
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example1cg" name='first_name'>First Name</label>
-                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                                                required />
-                                        </div>
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example1cg" name='last_name'>Last Name</label>
-                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg"
-                                                required />
-                                        </div>
-
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example3cg" name='email'>Your Email</label>
-                                            <input type="email" id="form3Example3cg"
-                                                class="form-control form-control-lg" required />
-
-                                        </div>
-
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example4cg" name='password1'>Password</label>
-                                            <input type="password" id="form3Example4cg"
-                                                class="form-control form-control-lg" required />
-
-                                        </div>
-
-                                        <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example4cdg" name='password2'>Repeat your
-                                                password</label>
-                                            <input type="password" id="form3Example4cdg"
-                                                class="form-control form-control-lg" required />
-                                        </div>
-
-                                        
-
-                                        <div class="d-flex justify-content-center">
-                                            <button type="submit"
-                                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
-                                        </div>
-
-
-                                    </form>
-                                </div>
-                            </div>
-                            <!-- Pills content -->
-                        </div>
-                    </div>
-                </div>
-
-                
-  
-  <!-- cart-->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-          <div class="card">
-            <div class="row">
-                <div class="col-md-8 cart">
-                   
-                    <div class="row border-top border-bottom">
-                        <div class="row main align-items-center">
-                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"></div>
-                            <div class="col">
-                                <div class="row text-muted">Shirt</div>
-                                <div class="row">Cotton T-shirt</div>
-                            </div>
-                            <div class="col">
-                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                            </div>
-                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="row main align-items-center">
-                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
-                            <div class="col">
-                                <div class="row text-muted">Shirt</div>
-                                <div class="row">Cotton T-shirt</div>
-                            </div>
-                            <div class="col">
-                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                            </div>
-                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                        </div>
-                    </div>
-                    <div class="row border-top border-bottom">
-                        <div class="row main align-items-center">
-                            <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
-                            <div class="col">
-                                <div class="row text-muted">Shirt</div>
-                                <div class="row">Cotton T-shirt</div>
-                            </div>
-                            <div class="col">
-                                <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
-                            </div>
-                            <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
-                        </div>
-                    </div>
-                    <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
-                </div>
-                <div class="col-md-4 summary">
-                    <div>
-                        <h5><b>Summary</b></h5></div>
-                    <hr>
-                    <div class="row">
-                        <div class="col" style="padding-left:0;">ITEMS 3</div>
-                        <div class="col text-right">&euro; 132.00</div>
-                    </div>
-                    <form>
-                        <p>SHIPPING</p>
-                        <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
-                        <p>GIVE CODE</p>
-                        <input id="code" placeholder="Enter your code">
-                    </form>
-                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                        <div class="col">TOTAL PRICE</div>
-                        <div class="col text-right">&euro; 137.00</div>
-                    </div>
+                <a class="fas fa-user-circle" id="dropdownMenuLink" data-bs-toggle="dropdown"></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="#">name</a>
+                    <hr class="dropdown-divider">
+                    <a class="dropdown-item fas fa-user-circle" href="#"><span>Edit Profile</span></a>
+                    <a class="dropdown-item" href="#"><i class="fa-solid fa-address-book"></i>Contact us</a>
+                    <a class="dropdown-item fa-solid fa-right-from-bracket" href="#"><span>Logout</span><span>></span></a>
+                    
                     
                 </div>
-                <button type="button" class="btn btn-primary">CHECKOUT</button>
-            </div>
-            
-        
-        </div>
-        
-      </div>
-    </div>
-  </div>
+
             </div>
 
         </div>
