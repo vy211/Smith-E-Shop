@@ -43,7 +43,6 @@
                 <a href="#category">category</a>
                 <a href="#product">product</a>
                 <a href="#contact">contact</a>
-                <a href="{% url 'shop:login'%}" target="_blank">Login</a>
             </nav>
 
             <div class="icons">
@@ -51,14 +50,21 @@
                 <a href="#" class="fas fa-heart"></a>
                 <a class="fas fa-user-circle" id="dropdownMenuLink" data-bs-toggle="dropdown"></a>
                 <div class="dropdown-menu" id="profile-dropdown_box" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="#">Welcome name</a>
+                    {% if user.is_authenticated %}
+                    <a class="dropdown-item" href="#">Welcome {{user.username}}</a>
                     <hr class="dropdown-divider">
                     <a class="dropdown-item " href="#"><span>Edit Profile</span></a>
                     <a class="dropdown-item " href="#"><span>Contact us</span> </a>
                     <hr class="dropdown-divider">
-                    <a class="dropdown-item " href="#"><span>Logout</span></a>
-
-
+                    <a class="dropdown-item " href="{% url 'shop:logout'%}"><span>Logout</span></a>
+                    {%else%}
+                    <a class="dropdown-item" href="#">Welcome username</a>
+                    <hr class="dropdown-divider">
+                    <a class="dropdown-item " href="#"><span>Edit Profile</span></a>
+                    <a class="dropdown-item " href="#"><span>Contact us</span> </a>
+                    <hr class="dropdown-divider">
+                    <a class="dropdown-item " href="{% url 'shop:login'%}"><span>Login</span></a>
+                    {%endif%}
                 </div>
 
             </div>

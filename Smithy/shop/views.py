@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.contrib.auth.models import User, auth
+from django.contrib.auth import logout, authenticate, login
+from django.contrib import messages
 # Create your views here.
 
 
@@ -23,27 +26,44 @@ def utensils(request):
     return render(request, 'shop/utensils.html')
 
 
-def login(request):
+def logIn(request):
+    if request.method == "POST":
+        user_name = request.POST.get('userName')
+        pass_word = request.POST.get('passWord1')
+        user = authenticate(username=user_name, password=pass_word)
+        if user is not None:
+            login(request, user)
+            return redirect("/")
+        else:
+            messages.info(request, 'Invalid Username or Password!!')
+            return redirect('/login')
     return render(request, 'shop/login.html')
 
 
-def signup(request):
-    return render(request, 'shop/signup.html')
+def logoutuser(request):
+    logout(request)
+    return redirect("/")
 
 
-def register(request):
+def signUp(request):
     if request.method == 'POST':
-        user_name = request.POST['user_name']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password1')
+        confirm_password = request.POST.get('password2')
+        if User.objects.filter(username=username).exists():
+            messages.info(request, 'Username Taken')
+            return redirect('/signup')
+        elif User.objects.filter(email=email).exists():
+            messages.info(request, 'Email Taken')
+            return redirect('/signup')
+        elif password != confirm_password:
+            messages.info(request, 'Passwords do not match!!')
+            return redirect('/signup')
+        else:
+            user = User.objects.create_user(
+                username=username, email=email, password=password)
+            user.save()
+            return redirect('/login')
 
-        user = User.objects.create_user(
-            username=user_name, password=password1, email=email, first_name=first_name, last_name=last_name)
-        user.save()
-        print('user created')
-        return redirect('/')
-    else:
-        return render(request, 'shop/tools.html')
+    return render(request, 'shop/signup.html')
