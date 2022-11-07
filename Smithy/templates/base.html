@@ -43,8 +43,7 @@
                 <a href="#category">category</a>
                 <a href="#product">product</a>
                 <a href="#contact">contact</a>
-                <a href="{% url 'shop:login'%}" target="_blank">login/signup for Seller</a>
-                <a href="{% url 'shop:login'%}" target="_blank">login/signup for Buyer</a>
+                <a href="{% url 'shop:login'%}" target="_blank">Login</a>
             </nav>
 
             <div class="icons">
@@ -99,44 +98,46 @@
                                 </div>
                                 <div class="tab-pane fade" id="pills-register" role="tabpanel"
                                     aria-labelledby="tab-register">
-                                    <form>
-
+                                    <form method='POST'>
+                                        {% csrf_token %}
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example1cg">Your Name</label>
+                                            <label class="form-label" for="form3Example1cg" name='user_name'>User Name</label>
                                             <input type="text" id="form3Example1cg" class="form-control form-control-lg"
                                                 required />
-
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form3Example1cg" name='first_name'>First Name</label>
+                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                                                required />
+                                        </div>
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="form3Example1cg" name='last_name'>Last Name</label>
+                                            <input type="text" id="form3Example1cg" class="form-control form-control-lg"
+                                                required />
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example3cg">Your Email</label>
+                                            <label class="form-label" for="form3Example3cg" name='email'>Your Email</label>
                                             <input type="email" id="form3Example3cg"
                                                 class="form-control form-control-lg" required />
 
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example4cg">Password</label>
+                                            <label class="form-label" for="form3Example4cg" name='password1'>Password</label>
                                             <input type="password" id="form3Example4cg"
                                                 class="form-control form-control-lg" required />
 
                                         </div>
 
                                         <div class="form-outline mb-4">
-                                            <label class="form-label" for="form3Example4cdg">Repeat your
+                                            <label class="form-label" for="form3Example4cdg" name='password2'>Repeat your
                                                 password</label>
                                             <input type="password" id="form3Example4cdg"
                                                 class="form-control form-control-lg" required />
                                         </div>
 
-                                        <div class="form-check d-flex justify-content-center mb-5">
-                                            <input class="form-check-input me-2" type="checkbox" value=""
-                                                id="form2Example3cg" required />
-                                            <label class="form-check-label" for="form2Example3g">
-                                                I agree all statements in <a href="#!" class="text-body"><u>Terms of
-                                                        service</u></a>
-                                            </label>
-                                        </div>
+                                        
 
                                         <div class="d-flex justify-content-center">
                                             <button type="submit"
