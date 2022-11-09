@@ -155,7 +155,6 @@ section {
   color: var(--green);
 }
 
-#profile-dropdown_box {}
 
 #menu-bar {
   font-size: 3rem;
@@ -197,36 +196,6 @@ section {
   color: var(--black);
 }
 
-/*Categories*/
-.categories {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.categories .spice-image {
-  flex: 1 1 34rem;
-  padding-top: 5rem;
-}
-
-.categories .spice-image img {
-  width: 80%;
-}
-
-.categories .content {
-  flex: 1 1 40rem;
-}
-
-.categories .content span {
-  font-size: 3rem;
-  color: #666;
-}
-
-.categories .content h3 {
-  font-size: 4rem;
-  color: var(--black);
-}
 
 
 .banner-container {
@@ -410,59 +379,6 @@ section {
   display: block;
 }
 
-.deal {
-  background: url(../images/deal-bg.jpg) no-repeat;
-  background-position: center;
-  background-size: cover;
-  padding-top: 7rem;
-  padding-bottom: 7rem;
-}
-
-.deal .content {
-  max-width: 50rem;
-}
-
-.deal .content .title {
-  font-size: 4rem;
-  color: var(--black);
-}
-
-.deal .content p {
-  font-size: 1.7rem;
-  padding: 1rem 0;
-  color: #333;
-}
-
-.deal .content .count-down {
-  display: flex;
-  gap: 1rem;
-  padding: .5rem 0;
-}
-
-.deal .content .count-down .box {
-  width: 9rem;
-  text-align: center;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-  border: .1rem solid rgba(0, 0, 0, .3);
-}
-
-.deal .content .count-down .box h3 {
-  color: var(--black);
-  background: #fff;
-  height: 7rem;
-  line-height: 7rem;
-  width: 100%;
-  font-size: 5rem;
-}
-
-.deal .content .count-down .box span {
-  display: block;
-  background: var(--black);
-  color: #fff;
-  width: 100%;
-  padding: .5rem;
-  font-size: 2rem;
-}
 
 .contact form {
   text-align: center;

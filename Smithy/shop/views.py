@@ -26,6 +26,10 @@ def utensils(request):
     return render(request, 'shop/utensils.html')
 
 
+def cart(request):
+    return render(request, 'shop/cart.html')
+
+
 def logIn(request):
     if request.method == "POST":
         user_name = request.POST.get('userName')

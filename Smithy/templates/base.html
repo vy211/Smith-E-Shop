@@ -14,8 +14,10 @@
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="{% static 'shop/style.css'%}">
+    <link rel="stylesheet" href="{% static 'shop/cart.css'%}">
 
 </head>
 
@@ -49,12 +51,13 @@
             </nav>
 
             <div class="icons">
-                <a data-bs-toggle="modal" data-bs-target="#exampleModal" class="fas fa-shopping-cart"></a>
+                <a href="{% url 'shop:cart'%}"><i class="fas fa-shopping-cart"></i></a>
                 <a href="#" class="fas fa-heart"></a>
                 <a class="fas fa-user-circle" id="dropdownMenuLink" data-bs-toggle="dropdown"></a>
+                <a href="#"><span>horil MDRCHOD hai</span></a>
                 <div class="dropdown-menu" id="profile-dropdown_box" aria-labelledby="dropdownMenuLink">
                     {% if user.is_authenticated %}
-                    <a class="dropdown-item" href="#">Welcome {{user.username}}</a>
+                    <a class="dropdown-item" href="#"">Welcome {{user.username}}</a>
                     <hr class="dropdown-divider">
                     <a class="dropdown-item " href="#"><span>Edit Profile</span></a>
                     <a class="dropdown-item " href="#"><span>Contact us</span> </a>
@@ -69,6 +72,7 @@
                     <a class="dropdown-item " href="{% url 'shop:login'%}"><span>Login</span></a>
                     {%endif%}
                 </div>
+                
 
             </div>
 
