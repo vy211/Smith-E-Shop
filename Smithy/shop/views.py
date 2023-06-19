@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
+from shop.models import Product
 # Create your views here.
 
 
@@ -11,7 +12,11 @@ def index(request):
 
 
 def tools(request):
-    return render(request, 'shop/tools.html')
+    productData = Product.objects.all()
+    data = {
+        'productData' : productData
+    }
+    return render(request, 'shop/tools.html', data)
 
 
 def weapones(request):
