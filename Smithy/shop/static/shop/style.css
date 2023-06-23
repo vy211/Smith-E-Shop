@@ -72,6 +72,7 @@ section {
   align-items: center;
   justify-content: space-between;
   padding: 2rem 9%;
+  
 }
 
 .logo {
@@ -122,7 +123,6 @@ section {
   justify-content: space-between;
   padding: 2rem 9%;
   box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-  position: relative;
 }
 
 .header-2.active {
@@ -150,9 +150,13 @@ section {
   color: var(--black);
   padding-left: 1rem;
 }
-
 .header-2 .icons a:hover {
   color: var(--green);
+}
+
+.header-2 .active a{
+  background-color: var(--green);
+  color: #fff;
 }
 
 
@@ -656,6 +660,7 @@ section {
   border-radius: 25px;
 }
 
+
 .login_form form .input-field {
   position: relative;
   height: 50px;
@@ -762,9 +767,9 @@ section {
 
 }
 
-.login_form .login-signup a:hover {
-
-  text-decoration: underline;
+.login_form .login-signup .text a:hover {
+  cursor: pointer;
+  /* text-decoration: underline; */
 }
 
 /* end login form */

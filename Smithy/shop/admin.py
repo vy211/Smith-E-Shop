@@ -9,9 +9,9 @@ from django.contrib import admin
 from shop.models import Product
 
 
-@admin.register(Product)
+# @admin.register(Product)
 class ProductModelAdmid(admin.ModelAdmin):
-    list_display = ['id', 'title', 'discounted_price', 'selling_price',
-                    'category', 'product_image']
+    list_display = ('id', 'title', 'discounted_price', 'selling_price',
+                    'category', 'product_image')
 
-#admin.site.register(Product, ProductModelAdmid)
+admin.site.register(Product, ProductModelAdmid)

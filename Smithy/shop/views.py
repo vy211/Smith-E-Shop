@@ -4,13 +4,18 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from shop.models import Product
+
+from django.contrib.auth.decorators import login_required
+
+
+@login_required(login_url='shop:login')
 # Create your views here.
 
-
+@login_required(login_url='shop:login')
 def index(request):
     return render(request, 'shop/index.html')
 
-
+@login_required(login_url='shop:login')
 def tools(request):
     productData = Product.objects.all()
     data = {
@@ -18,19 +23,19 @@ def tools(request):
     }
     return render(request, 'shop/tools.html', data)
 
-
+@login_required(login_url='shop:login')
 def weapones(request):
     return render(request, 'shop/weapones.html')
 
-
+@login_required(login_url='shop:login')
 def agriculture(request):
     return render(request, 'shop/agriculture.html')
 
-
+@login_required(login_url='shop:login')
 def utensils(request):
     return render(request, 'shop/utensils.html')
 
-
+@login_required(login_url='shop:login')
 def cart(request):
     return render(request, 'shop/cart.html')
 
