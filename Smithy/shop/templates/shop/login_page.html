@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class=" justify-content-center"> 
+    <div class="login_form " id="Login_page">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="input-field">
+                                <input type="text" name="username" id="" placeholder="Enter your user name" required>
+                                <i class="uil uil-envelope"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" name="password" id="" placeholder="Enter your password" required>
+                                <i class="uil uil-lock icon"></i>
+                                <i class="uil uil-eye-slash showHidenPw"></i>
+                            </div>
+
+                            <div class="checkbox-text">
+                                <div class="checkbox-content">
+                                    <input type="checkbox" id="logCheck">
+                                    <label for="logCheck" class="text">Remember me</label>
+                                </div>
+                                <div>
+
+                                    <a href="#" class="text">Forgot password?</a>
+                                </div>
+                            </div>
+
+                            <div class="input-field button">
+                                <input type="submit" value="Login Now">
+                            </div>
+
+                            <div class="login-signup">
+                                <span class="text">Don't have an account
+                                    ?
+                                    <a  data-bs-toggle=" modal" href="{% url 'shop:signup' %}">Signup now</a>
+                                    
+                                </span>
+                            </div>
+
+                            
+                            
+                        </form>
+                        
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>   
+{% endblock %}

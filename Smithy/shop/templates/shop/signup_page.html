@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class=" justify-content-center"> 
+    <div class="login_form" id="Signup_page">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+                    {% comment %} <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> {% endcomment %}
+                </div>
+                <div class="modal-body">
+                    {% comment %} <div class="container"> {% endcomment %}
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="input-field">
+                                <input type="text" name="username" id="" placeholder="User Name" required>
+                                <i class="fa-regular fa-circle-user"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="mail" name="email" id="" placeholder="Enter your email" required>
+                                <i class="uil uil-envelope"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" name="password1" class="password" placeholder="Create a password" required>
+                                <i class="uil uil-lock icon"></i>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" name="password2" class="password" placeholder="Confirm a password" required>
+                                <i class="uil uil-lock icon"></i>
+                                <i class="uil uil-eye-slash showHidenPw"></i>
+                            </div>
+
+                            {% if output is not None %}
+                            <div class="input_field passnot_match" >
+                                <span class="text">{{output}}</span>
+                            </div>
+                            {% endif %}
+                           
+        
+                            <div class="input-field button">
+                                <input type="submit" value="Register Now">
+                            </div>
+
+                            <div class="login-signup" >
+                                <span class="text">Already have an account?
+                                    <a  data-bs-toggle=" modal" href="{% url 'shop:login' %}">Login now</a>
+                                </span>
+                            </div>
+
+                        </form>
+                        
+                    {% comment %} </div> {% endcomment %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>    
+{% endblock %}

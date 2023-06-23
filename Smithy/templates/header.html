@@ -29,7 +29,7 @@
 
         <div class="header-1">
 
-            <a href="{% url 'shop:index'%}" class="logo "><i class='fas fa-hammer' style='font-size:36px'></i>Smithy</a>
+            <a  class="logo "><i class='fas fa-hammer' style='font-size:36px'></i>Smithy</a>
             <form action="" class="search-box-container">
                 <input type="search" id="search-box" placeholder="search here...">
                 <label for="search-box" class="fas fa-search"></label>
@@ -40,39 +40,47 @@
 
             <div id="menu-bar" class="fas fa-bars"></div>
 
-            <nav class="navbar">
-                <a href="{% url 'shop:index'%}">home</a>
+            <ul class="navbar" style="list-style-type:none;">
+
+                {%url 'shop:index' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a  href="{{url}}">home</a></li>
+                {%url 'shop:tools' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">tools</a></li>
+                <li><a href="{% url 'shop:agriculture' %}">Agriculture</a></li>
+                <li><a href="{% url 'shop:weapones' %}">Weapones</a></li>
+                <li><a href="{% url 'shop:utensils' %}">Utensils</a></li>
                 <a href="#category">category</a>
                 <a href="#product">product</a>
                 <a href="#contact">contact</a>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#Login_page">
-                    newDemo
-                </button>
-            </nav>
+            </ul>
 
             <div class="icons">
-                <a href="{% url 'shop:cart'%}"><i class="fas fa-shopping-cart"></i></a>
+                
+                {% if user.is_authenticated %}
+                <a href="#"><i class="fas fa-shopping-cart"></i></a>
                 <a href="#" class="fas fa-heart"></a>
                 <a class="fas fa-user-circle" id="dropdownMenuLink" data-bs-toggle="dropdown"></a>
-                <a href="#"><span>{{user.username}}</span></a>
+                {% comment %} <a href="#"><span>{{user.username}}</span></a> {% endcomment %}
                 <div class="dropdown-menu" id="profile-dropdown_box" aria-labelledby="dropdownMenuLink">
-                    {% if user.is_authenticated %}
+                    
                     
                     <a class="dropdown-item" href="#"">Welcome {{user.username}}</a>
                     <hr class="dropdown-divider">
-                    <a class="dropdown-item " href="#"><span>Edit Profile</span></a>
-                    <a class="dropdown-item " href="#"><span>Contact us</span> </a>
+                    <a class="dropdown-item " href="#"><span>My Profile</span></a>
+                    <a class="dropdown-item " href="#"><span>Orders</span> </a>
                     <hr class="dropdown-divider">
-                    <a class="dropdown-item " href="{% url 'shop:logout'%}"><span>Logout</span></a>
-                    {%else%}
-                    <a class="dropdown-item" href="#">Welcome username</a>
-                    <hr class="dropdown-divider">
-                    <a class="dropdown-item " href="#"><span>Edit Profile</span></a>
-                    <a class="dropdown-item " href="#"><span>Contact us</span> </a>
-                    <hr class="dropdown-divider">
-                    <a class="dropdown-item " href="{% url 'shop:login'%}"><span>Login</span></a>
-                    {%endif%}
+                    <a class="dropdown-item " href="{% url 'shop:logout' %}"><span>Logout</span> </a>
                 </div>
+                    {% comment %} <a class="dropdown-item " href="{% url 'shop:logout'%}"><span>Logout</span></a> {% endcomment %}
+                    {%else%}
+                    
+                    {% comment %} <a   data-bs-toggle="modal" data-bs-target="#Login_page">
+                        login
+                    </a> {% endcomment %}
+
+                    <a class="dropdown-item " href="{% url 'shop:login' %}"><span>Login</span> </a>
+                    {%endif%}
+                
                 
 
             </div>
@@ -82,8 +90,7 @@
            <!-- Button trigger modal -->
     
 
-    <!-- login  future  work -->
-    <div class="login_form modal fade" id="Login_page">
+    {% comment %} <div class="login_form modal fade" id="Login_page">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -91,7 +98,6 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="container">
                         <form action="#">
                             <div class="input-field">
                                 <input type="text" name="" id="" placeholder="Enter your email" required>
@@ -115,25 +121,27 @@
                             </div>
 
                             <div class="input-field button">
-                                <input type="button" value="Login Now">
+                                <input type="submit" value="Login Now">
+                            </div>
+
+                            <div class="login-signup">
+                                <span class="text">Don't have an account
+                                    ?
+                                    <a  data-bs-toggle=" modal" data-bs-target="#Signup_page">Signup now</a>
+                                </span>
                             </div>
                             
                         </form>
-                        <div class="login-signup">
-                            <span class="text">Don't have an account
-                                ?
-                                <a  data-bs-toggle="modal" data-bs-target="#Signup_page">Signup now</a>
-                            </span>
-                        </div>
-                    </div>
+                        
+
                 </div>
 
             </div>
         </div>
-    </div>
+    </div> {% endcomment %}
 
         <!-- Sign Up -->
-        <div class="login_form modal fade" id="Signup_page">
+        {% comment %} <div class="login_form modal fade" id="Signup_page">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -141,7 +149,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <div class="container">
                             <form action="#" model="POST">
                                 {% csrf_token %}
                                 <div class="input-field">
@@ -167,21 +174,21 @@
                                 <div class="input-field button">
                                     <input type="submit" value="Register Now">
                                 </div>
+
+                                <div class="login-signup" >
+                                    <span class="text">Already have an account?
+                                        <a  data-bs-toggle="modal" data-bs-target="#Login_page">Login now</a>
+                                    </span>
+                                </div>
+
                             </form>
-                            <div class="login-signup">
-                                <span class="text">Already have an account?
-                                    <a  data-bs-toggle="modal" data-bs-target="#Login_page">Login now</a>
-                                </span>
-                            </div>
-                        </div>
+                         
                     </div>
     
                 </div>
             </div>
-        </div>
+        </div> {% endcomment %}
 
-
-
-          {% comment %} <--! loginpage--> {% endcomment %}
 
     </header>
+</body>
