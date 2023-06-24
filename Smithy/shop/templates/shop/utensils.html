@@ -1,17 +1,32 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
-    <section class="categories" id="category">
+{% extends 'base.html' %} {% load static %} {% block content %} {% comment %}
+<section class="categories" id="category">
+  <div class="spice-image">
+    <img src="" alt="" />
+  </div>
+</section>
+{% endcomment %}
+<section class="product" id="product">
+  <h1 class="heading">Select Your <span>utensils</span></h1>
 
-        <div class="spice-image">
-            <img src="" alt="">
-        </div>
+  <div class="box-container">
+    <div class="box">
+      <span class="discount">-33%</span>
 
+      <img src="" alt="" />
+      <h3>Kettle</h3>
 
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
 
-    </section>
-    <section class="product" id="product">
+    <div class="box">
+      <span class="discount">-45%</span>
 
+<<<<<<< HEAD
         <h1 class="heading">Select Your <span>utensils</span></h1>
         <div class="box-container">
             {% for n in productData %}
@@ -33,3 +48,114 @@
         </div>      
     </section>
 {% endblock %}
+=======
+      <img src="" alt="" />
+      <h3>nutcracker</h3>
+
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
+
+    <div class="box">
+      <span class="discount">-52%</span>
+
+      <img src="" alt="" />
+      <h3>whisk</h3>
+
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
+
+    <div class="box">
+      <span class="discount">-13%</span>
+
+      <img src="" alt="" />
+      <h3>cooking pot</h3>
+
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
+
+    <div class="box">
+      <span class="discount">-20%</span>
+
+      <img src="" alt="" />
+      <h3>wok</h3>
+
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
+
+    <div class="box">
+      <span class="discount">-29%</span>
+
+      <img src="" alt="" />
+      <h3>frying pan</h3>
+
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
+
+    <div class="box">
+      <span class="discount">-55%</span>
+
+      <img src="" alt="" />
+      <h3>ladle</h3>
+
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
+
+    <div class="box">
+      <span class="discount">-30%</span>
+      ="images/fruits/papaya.jpeg" alt="">
+      <h3>skimmer</h3>
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
+
+    <div class="box">
+      <span class="discount">-40%</span>
+
+      <img src="" alt="" />
+      <h3>spatula</h3>
+
+      <div class="price">Rs 10.50 <span> Rs 13.20 </span></div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="#" class="btn">add to cart</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
+>>>>>>> 41e9d0e57f9938d0acba84723b493f3492ff7652

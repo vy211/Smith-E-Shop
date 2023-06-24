@@ -8,10 +8,10 @@ from shop.models import Product
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url='shop:login')
+# @login_required(login_url='shop:login')
 # Create your views here.
 
-@login_required(login_url='shop:login')
+# @login_required(login_url='shop:login')
 def index(request):
     productData = Product.objects.all()
     data = {
@@ -19,7 +19,7 @@ def index(request):
     }
     return render(request, 'shop/index.html', data)
 
-@login_required(login_url='shop:login')
+# @login_required(login_url='shop:login')
 def tools(request):
     productData = Product.objects.all()
     data = {
@@ -27,7 +27,7 @@ def tools(request):
     }
     return render(request, 'shop/tools.html', data)
 
-@login_required(login_url='shop:login')
+# @login_required(login_url='shop:login')
 def weapones(request):
     productData = Product.objects.all()
     data = {
@@ -35,7 +35,7 @@ def weapones(request):
     }
     return render(request, 'shop/weapones.html', data)
 
-@login_required(login_url='shop:login')
+# @login_required(login_url='shop:login')
 def agriculture(request):
     productData = Product.objects.all()
     data = {
@@ -43,7 +43,7 @@ def agriculture(request):
     }
     return render(request, 'shop/agriculture.html', data)
 
-@login_required(login_url='shop:login')
+# @login_required(login_url='shop:login')
 def utensils(request):
     productData = Product.objects.all()
     data = {
@@ -51,9 +51,27 @@ def utensils(request):
     }
     return render(request, 'shop/utensils.html', data)
 
-@login_required(login_url='shop:login')
+# @login_required(login_url='shop:login')
 def cart(request):
     return render(request, 'shop/cart.html')
+
+
+# @login_required(login_url='shop:login')
+def wishlist(request):
+    return render(request, 'shop/wishlist.html')
+
+@login_required(login_url='shop:login')
+def payment(request):
+    return render(request, 'shop/payment_page.html')
+
+@login_required(login_url='shop:login')
+def profile(request):
+    return render(request, 'shop/profile_page.html')
+
+@login_required(login_url='shop:login')
+def orders(request):
+    return render(request, 'shop/orders_page.html')
+
 
 
 def login_page(request):
