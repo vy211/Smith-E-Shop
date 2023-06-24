@@ -18,7 +18,7 @@
             {% if n.category == "A" %}
             <div class="box">
                 <span class="discount">-33%</span>
-                <img src="" alt="image" height = 200 width = 200>
+                <img src="/{{n.product_image}}" alt="image" >
                 <h3>{{n.title}}</h3>
                 <div class="price"> Rs {{n.discounted_price}} <span> Rs {{n.selling_price}} </span> </div>
                 <div class="quantity">
