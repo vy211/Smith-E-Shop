@@ -82,101 +82,13 @@
 <section class="product" id="product">
 
     <h1 class="heading">latest <span>products</span></h1>
-
     <div class="box-container">
-
+        {% for n in productData %}
         <div class="box">
             <span class="discount">-33%</span>
-
-            <img src="images/tools/Hammer.png" alt="">
-            <h3>Hammer</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-45%</span>
-
-            <img src="images/Utensils/kuber-industries-plain-pure-copper-water-bottle1ltr-set-of-2-brown-kubmart11565-141523_l-removebg-preview.png"
-                alt="">
-            <h3>Cooper Bottle</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-52%</span>
-
-            <img src="images/weapons/Sword.png" alt="">
-            <h3>Sword</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-13%</span>
-
-            <img src="images/product-4.png" alt="">
-            <h3>AK 47</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-20%</span>
-
-            <img src="images/product-5.png" alt="">
-            <h3>Mini Guns</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-29%</span>
-
-            <img src="images/product-6.png" alt="">
-            <h3>Spade</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-55%</span>
-
-            <img src="images/product-7.png" alt="">
-            <h3>Nibbler</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
+            <img src="" alt="image" height = 200 width = 200>
+            <h3>{{n.title}}</h3>
+            <div class="price"> Rs {{n.discounted_price}} <span> Rs {{n.selling_price}} </span> </div>
             <div class="quantity">
                 <span>quantity : </span>
                 <input type="number" min="1" max="1000" value="1">
@@ -184,37 +96,7 @@
             </div>
             <a href="#" class="btn">add to cart</a>
         </div>
-
-        <div class="box">
-            <span class="discount">-30%</span>
-
-            <img src="images/product-8.png" alt="">
-            <h3>scissors</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
-        <div class="box">
-            <span class="discount">-40%</span>
-
-            <img src="images/product-9.png" alt="">
-            <h3>Knife</h3>
-
-            <div class="price"> Rs 10.50 <span> Rs 13.20 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-
-            </div>
-            <a href="#" class="btn">add to cart</a>
-        </div>
-
+        {% endfor %}
     </div>
 
 </section>

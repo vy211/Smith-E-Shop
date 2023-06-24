@@ -13,7 +13,11 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='shop:login')
 def index(request):
-    return render(request, 'shop/index.html')
+    productData = Product.objects.all()
+    data = {
+        'productData' : productData
+    }
+    return render(request, 'shop/index.html', data)
 
 @login_required(login_url='shop:login')
 def tools(request):
@@ -25,15 +29,27 @@ def tools(request):
 
 @login_required(login_url='shop:login')
 def weapones(request):
-    return render(request, 'shop/weapones.html')
+    productData = Product.objects.all()
+    data = {
+        'productData' : productData
+    }
+    return render(request, 'shop/weapones.html', data)
 
 @login_required(login_url='shop:login')
 def agriculture(request):
-    return render(request, 'shop/agriculture.html')
+    productData = Product.objects.all()
+    data = {
+        'productData' : productData
+    }
+    return render(request, 'shop/agriculture.html', data)
 
 @login_required(login_url='shop:login')
 def utensils(request):
-    return render(request, 'shop/utensils.html')
+    productData = Product.objects.all()
+    data = {
+        'productData' : productData
+    }
+    return render(request, 'shop/utensils.html', data)
 
 @login_required(login_url='shop:login')
 def cart(request):
