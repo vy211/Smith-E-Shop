@@ -46,9 +46,13 @@
                 <li class="{% if request.path == url %} active {% endif %}"><a  href="{{url}}">home</a></li>
                 {%url 'shop:tools' as url %}
                 <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">tools</a></li>
-                <li><a href="#contact">Agriculture</a></li>
-                <li><a href="#contact">Weapones</a></li>
-                <li><a href="#contact">Utensils</a></li>
+                {%url 'shop:agriculture' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Agriculture</a></li>
+                {%url 'shop:weapones' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">Weapones</a></li>
+                {%url 'shop:utensils' as url %}
+                <li class="{% if request.path == url %} active {% endif %}"><a href="{{url}}">utensils</a></li>
+                
                 {% comment %} <a href="#category">category</a>
                 <a href="#product">product</a>
                 <a href="#contact">contact</a> {% endcomment %}
@@ -57,8 +61,8 @@
             <div class="icons">
                 
                 {% if user.is_authenticated %}
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#" class="fas fa-heart"></a>
+                <a href="{% url 'shop:cart' %}"><i class="fas fa-shopping-cart"></i></a>
+                <a href="{% url 'shop:wishlist' %}" class="fas fa-heart"></a>
                 <a class="fas fa-user-circle" id="dropdownMenuLink" data-bs-toggle="dropdown"></a>
                 {% comment %} <a href="#"><span>{{user.username}}</span></a> {% endcomment %}
                 <div class="dropdown-menu" id="profile-dropdown_box" aria-labelledby="dropdownMenuLink">
@@ -66,8 +70,8 @@
                     
                     <a class="dropdown-item" href="#"">Welcome {{user.username}}</a>
                     <hr class="dropdown-divider">
-                    <a class="dropdown-item " href="#"><span>My Profile</span></a>
-                    <a class="dropdown-item " href="#"><span>Orders</span> </a>
+                    <a class="dropdown-item " href="{% url 'shop:profile' %}"><span>My Profile</span></a>
+                    <a class="dropdown-item " href="{% url 'shop:orders' %}"><span>Orders</span> </a>
                     <hr class="dropdown-divider">
                     <a class="dropdown-item " href="{% url 'shop:logout' %}"><span>Logout</span> </a>
                 </div>
