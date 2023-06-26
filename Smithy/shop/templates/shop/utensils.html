@@ -12,7 +12,7 @@
     {% for n in productData %}
     {% if n.category == "U" %}
     <div class="box">
-        <span class="discount">-33%</span>
+        <span class="discount">-{{n.percentage}}%</span>
         <img src="/{{n.product_image}}" alt="">
         <h3>{{n.title}}</h3>
         <div class="price"> Rs {{n.discounted_price}} <span> Rs {{n.selling_price}} </span> </div>
