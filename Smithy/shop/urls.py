@@ -11,10 +11,15 @@ urlpatterns = [
     path('utensils/', views.utensils, name='utensils'),
     path('login/', views.login_page, name='login'),
     path('signup/', views.signup_page, name='signup'),
-    path('cart/',views.cart, name='cart'),
     path('wishlist/',views.wishlist, name='wishlist'),
     path('logout', views.logout_page, name="logout"),
     path('payment', views.payment, name="payment"),
     path('profile', views.profile, name="profile"),
     path('orders', views.orders, name="orders"),
+
+    
+    path('product-details/<product_id>',views.product_details,name='product_details'),
+    path('add-to-cart/',views.add_to_cart,name='add-to-cart'),
+    path('cart/',views.show_cart,name='showcart'),
+    path('delete-from-cart/',views.delete_from_cart,name='delete-from-cart'),
 ]

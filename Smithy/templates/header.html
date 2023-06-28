@@ -61,7 +61,7 @@
             <div class="icons">
                 
                 {% if user.is_authenticated %}
-                <a href="{% url 'shop:cart' %}"><i class="fas fa-shopping-cart"></i></a>
+                <a href="{% url 'shop:showcart' %}"><i class="fas fa-shopping-cart"></i></a>
                 <a href="{% url 'shop:wishlist' %}" class="fas fa-heart"></a>
                 <a class="fas fa-user-circle" id="dropdownMenuLink" data-bs-toggle="dropdown"></a>
                 {% comment %} <a href="#"><span>{{user.username}}</span></a> {% endcomment %}

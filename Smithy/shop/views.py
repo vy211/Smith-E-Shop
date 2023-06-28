@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import response,HttpResponse
+from django.http import response,HttpResponse,HttpResponseRedirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from shop.models import Product
-
+from cart.models import *
 from django.contrib.auth.decorators import login_required
 
 
@@ -110,3 +110,39 @@ def signup_page(request):
 def logout_page(request):
     logout(request)
     return redirect('/')
+
+
+
+def add_to_cart(request): 
+    user=request.user 
+    product_id=request.GET.get('product_id')
+    product = Product.objects.get(id=product_id)
+    Cart(user=user,product=product).save()
+    return redirect('/cart')
+
+def show_cart(request):
+    user=request.user 
+    cart= Cart.objects.filter(user=user)
+    amount = 0
+    shiping_amount = 40
+    l= len(cart)
+    for p in cart:
+        value = p.quantity * p.product.discounted_price
+        amount = amount + value
+    totalamount = amount + shiping_amount
+    return render(request,'shop/cart.html',locals())
+
+
+def delete_from_cart(request):
+   product_id=request.GET.get('product_id')
+   Cart.objects.filter(id=product_id).delete()
+   messages.success(request,"Your item deleted from cart !!")
+   return HttpResponseRedirect('/cart')
+
+def product_details(request,product_id):
+    print(product_id)
+    product_details=Product.objects.get(id=product_id)
+    data={
+        'product_details':product_details
+    }
+    return render(request,"shop/product_details.html",data)
