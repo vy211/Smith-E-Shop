@@ -1,9 +1,6 @@
-{% extends 'base.html' %}
- {% load static %} 
- {% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <section>
-  
   {% if l == 0 %}
   <div class="heading">Your <span class="title">Cart</span> is Empty .</div>
   {% else %}
@@ -11,7 +8,6 @@
     Your
     <span class="title">Cart</span>
   </div>
-  Two work remain quantity and repeate filter.
   <div class="row">
     <div class="overflow-scroll" style="max-height: 400px">
       {% for item in cart %}
@@ -20,70 +16,84 @@
           <div class="d-flex justify-content-between">
             <div class="d-flex flex-row align-items-center">
               <div>
+                <a href="{% url 'shop:product_details' item.product.id %}" >
                 <img
                   src="/{{item.product.product_image}}"
                   class="img-fluid rounded-3"
                   alt="Shopping item"
                   style="width: 65px"
                 />
+              </a>
               </div>
               <div class="ms-3">
-                <h3>{{item.product.title}}</h3>
+                <h3>{{item.product.name}}</h3>
               </div>
             </div>
             <div class="d-flex align-items-center">
-              <div class="quantity">
+              <div class="quantity d-flex align-items-center">
                 <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1" />
+                <form
+                  action="{% url 'shop:decrease_quantity' item.id %}"
+                  method="post"
+                  style="display: inline"
+                >
+                  {% csrf_token %}
+                  <button  type="submit"><i class="delete_btn fa fa-minus" style="font-size: 30px; background: white"></i></button>
+                </form>
+                <input type="number" style="width:50px" value="{{item.quantity}}" />
+                <form
+                  action="{% url 'shop:increase_quantity' item.id %}"
+                  method="post"
+                  style="display: inline"
+                >
+                  {% csrf_token %}
+                  <button type="submit"><i class="delete_btn fa fa-plus" style="font-size: 30px; background: white"></i></button>
+                </form>
               </div>
+
               <div class="price">
-                <h3 class="mb-0">Rs.<span>{{item.product.discounted_price}}</span></h3>
+                <h3 class="mb-0">
+                  Rs.<span>{{item.product.discounted_price}}</span>
+                </h3>
               </div>
               <form action="/delete-from-cart">
-                <input
-                  type="hidden"
-                  name="product_id"
-                  value="{{item.id}}"
-                />
+                <input type="hidden" name="product_id" value="{{item.id}}" />
                 <button type="submit">
-                  <i class="delete_btn fa fa-trash-o" style="font-size: 24px"></i>
+                  <i class="delete_btn fa fa-trash" style="font-size: 30px; background: white"></i>
                 </button>
               </form>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
       {% endfor %}
     </div>
   </div>
   <div class="heading">
-    {% comment %} <div class="col-lg-5"> {% endcomment %}
-      {% comment %} <div class="card"> {% endcomment %}
-        <div class="card-body">
-          <h2>The total amount of</h2>
-          
-          <div class="d-flex justify-content-start align-items-center">
-            <h4>Amount</h4>
-          </div>
-          <div class="d-flex justify-content-end align-items-center">
-            <h4>Rs. {{amount}}</h4>
-          </div>
+    <div class="card-body">
+      <h2>The total amount of</h2>
 
-          <div class="d-flex justify-content-start align-items-center">
-            <h4>Shipping</h4>
-          </div>
-          <div class="d-flex justify-content-end align-items-center">
-            <h4>Rs. {{shiping_amount}}</h4>
-          </div>
+      <div class="d-flex justify-content-start align-items-center">
+        <h4>Amount</h4>
+      </div>
+      <div class="d-flex justify-content-end align-items-center">
+        <h4>Rs. {{amount}}</h4>
+      </div>
 
-          <hr class="my-4" />
-          <div class="d-flex justify-content-between mb-4">
-            <h4 class="mb-2">Total(Incl. taxes)</h4>
-            <h4 class="mb-2">Rs. {{totalamount}}</h4>
-          </div>
-        </div>
-      {% comment %} </div> {% endcomment %}
-    {% comment %} </div> {% endcomment %}
+      <div class="d-flex justify-content-start align-items-center">
+        <h4>Shipping</h4>
+      </div>
+      <div class="d-flex justify-content-end align-items-center">
+        <h4>Rs. {{shiping_amount}}</h4>
+      </div>
+
+      <hr class="my-4" />
+      <div class="d-flex justify-content-between mb-4">
+        <h4 class="mb-2">Total(Incl. taxes)</h4>
+        <h4 class="mb-2">Rs. {{totalamount}}</h4>
+      </div>
+    </div>
+
     <a href="{% url 'shop:payment' %}" class="btn">Order Now</a>
   </div>
   {% endif %}

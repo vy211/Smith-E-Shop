@@ -1,28 +1,24 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} 
+{% load static %} 
 {% block content %}
-    <section class="product" id="product">
-
-        <h1 class="heading">Select Your <span>Weapones</span></h1>
-        <div class="box-container">
-            {% for n in productData %}
-            {% if n.category == "W" %}
-            <div class="box">
-                <span class="discount">-{{n.percentage}}%</span>
-                <img src="/{{n.product_image}}" alt="">
-                <h3>{{n.title}}</h3>
-                <div class="price"> Rs {{n.discounted_price}} <span> Rs {{n.selling_price}} </span> </div>
-                <div class="quantity">
-                    <span>quantity : </span>
-                    <input type="number" min="1" max="1000" value="1">
-    
-                </div>
-                <a href="{% url 'shop:product_details' n.id %}" class="btn">Order Now</a>
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>   
-        
-
-    </section>
+<section class="product" id="product">
+  <h1 class="heading">Select Your <span>Weapones</span></h1>
+  <div class="box-container">
+    {% for n in productData %}
+    <div class="box">
+      <span class="discount">-{{n.percentage}}%</span>
+      <img src="/{{n.product_image}}" alt="" />
+      <h3>{{n.title}}</h3>
+      <div class="price">
+        Rs {{n.discounted_price}} <span> Rs {{n.selling_price}} </span>
+      </div>
+      <div class="quantity">
+        <span>quantity : </span>
+        <input type="number" min="1" max="1000" value="1" />
+      </div>
+      <a href="{% url 'shop:product_details' n.id %}" class="btn">Order Now</a>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 {% endblock %}

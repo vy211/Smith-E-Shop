@@ -10,7 +10,7 @@
 
   <div class="box-container">
     {% for n in productData %}
-    {% if n.category == "U" %}
+    
     <div class="box">
         <span class="discount">-{{n.percentage}}%</span>
         <img src="/{{n.product_image}}" alt="">
@@ -23,7 +23,7 @@
         </div>
         <a href="{% url 'shop:product_details' n.id %}" class="btn">Order Now</a>
     </div>
-    {% endif %}
+    
     {% endfor %}
 </div>  
 </section>

@@ -1,21 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    {% comment %} <section class="categories" id="category">
-
-        <div class="spice-image">
-            <img src="images/Dairy Products/istockphoto-513470606-170667a.jpg" alt="">
-        </div>
-
-
-    </section> {% endcomment %}
+   
     <section class="product" id="product">
 
         <h1 class="heading">Select Your <span>Agriculture Weapones</span></h1>
 
         <div class="box-container">
             {% for n in productData %}
-            {% if n.category == "A" %}
+            
             <div class="box">
                 <span class="discount">-{{n.percentage}}%</span>
                 <img src="/{{n.product_image}}" alt="image" >
@@ -28,7 +21,6 @@
                 </div>
                 <a href="{% url 'shop:product_details' n.id %}" class="btn">Order Now</a>
             </div>
-            {% endif %}
             {% endfor %}
         </div> 
 
