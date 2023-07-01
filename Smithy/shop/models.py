@@ -25,3 +25,12 @@ class Product(models.Model):
     @property
     def percentage(self):
         return int(((self.selling_price - self.discounted_price) * 100)/self.selling_price)
+
+
+class Payment(models.Model):
+    name = models.CharField(max_length=100)
+    amount = models.CharField(max_length=100)
+    payment_id = models.CharField(max_length=100)
+    paid = models.BooleanField(default=False)
+    def __str__(self):
+        return self.name

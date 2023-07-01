@@ -9,4 +9,38 @@
   </div>
   
 </section>
+{% if payment %}
+<div class="text-center mx-auto">
+<form action ="/payment_page.html" method="POST">
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+  var options = {
+      key: "rzp_test_bWZe5HkNf0YSKY",
+      amount: "{{payment.amount}}", 
+      currency: "INR",
+      name: "{{payment.name}}",
+      description: "Test Transaction",
+      image: "https://example.com/your_logo",
+      order_id: "{{payment.id}}",
+      callback_url: "{{callback_url}}",
+      redirect: true,
+      prefill: {
+          "name": "Vipin Yadav",
+          "email": "smithy@gamil.com",
+          "contact": "9999999999"
+      },
+      notes: {
+          "address": "Razorpay Corporate Office"
+      },
+      theme: {
+          "color": "#3399cc"
+      }
+  };
+  var rzp1 = new Razorpay(options);
+  rzp1.open();
+  </script>
+  <input type="hidden" custom="Hidden Element" name="hidden">
+</form>
+</div>
+{% endif %}
 {% endblock %}

@@ -3,10 +3,10 @@ from django.http import response,HttpResponse,HttpResponseRedirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
-from shop.models import Product
+from shop.models import Product, Payment
 from cart.models import *
 from django.contrib.auth.decorators import login_required
-
+import razorpay
 
 # @login_required(login_url='shop:login')
 # Create your views here.
@@ -56,7 +56,14 @@ def utensils(request):
     return render(request, 'shop/utensils.html', data)
 # @login_required(login_url='shop:login')
 def cart(request):
-    return render(request, 'shop/cart.html')
+    cartData = Cart.objects.all()
+    data = {
+        'cartData': cartData
+    }
+    return render(request, 'shop/cart.html', data)
+
+def success(request):
+    return render(request, 'shop/payment_page.html')
 
 
 # @login_required(login_url='shop:login')
@@ -126,6 +133,24 @@ def add_to_cart(request):
 
 
 
+def pay_now(request):
+    user=request.user 
+    cart= Cart.objects.filter(user=user)
+    amount = 0
+    shiping_amount = 40
+    l= len(cart)
+    for p in cart:
+        value = p.quantity * p.product.discounted_price
+        amount = amount + value
+    totalamount = amount + shiping_amount
+    name = request.user
+    amount = totalamount
+    client = razorpay.Client(auth=("rzp_test_bWZe5HkNf0YSKY", "igcgehbcVvTyxih0oPf2k9Q3"))
+    payment = client.order.create({'amount':amount, 'currency':'INR', 'payment_capture':'1'})
+    print(payment)
+    pay = Payment(name=name, amount = amount, payment_id = payment['id'])
+    pay.save()
+    return render(request,'shop/payment_page.html',locals())
 
 def show_cart(request):
     user=request.user 
@@ -137,6 +162,13 @@ def show_cart(request):
         value = p.quantity * p.product.discounted_price
         amount = amount + value
     totalamount = amount + shiping_amount
+    #name = request.user
+    #amount = totalamount
+    #client = razorpay.Client(auth=("rzp_test_bWZe5HkNf0YSKY", "igcgehbcVvTyxih0oPf2k9Q3"))
+    #payment = client.order.create({'amount':amount, 'currency':'INR', 'payment_capture':'1'})
+    #print(payment)
+    #pay = Payment(name=name, amount = amount, payment_id = payment['id'])
+    #pay.save()
     return render(request,'shop/cart.html',locals())
 
 
