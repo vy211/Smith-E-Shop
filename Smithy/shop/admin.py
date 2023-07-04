@@ -14,8 +14,12 @@ class ProductModelAdmid(admin.ModelAdmin):
     list_display = ('id', 'title', 'discounted_price', 'selling_price', 'percentage',
                     'category', 'product_image')
 
+
 admin.site.register(Product, ProductModelAdmid)
+
 
 class PaymentModelAdmid(admin.ModelAdmin):
     list_display = ('name', 'amount', 'payment_id', 'paid')
+
+
 admin.site.register(Payment, PaymentModelAdmid)

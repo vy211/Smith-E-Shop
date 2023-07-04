@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/seller_base.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!--Top menu -->
+        <div class="sidebar">
+            <!--profile image & text-->
+            <div class="profile">
+                <img src="/static/photo/Photo.jpg" alt="profile_picture">
+                <h3>Sandeep Kumar Singh</h3>
+                <p>Designer</p>
+            </div>
+            <!--menu item-->
+            <ul>
+                
+                {% url 'seller:dashboard' as url %}
+                <li class="{% if request.path == url %} active {% endif %}">
+                    <a href="{{url}}">
+                        <span class="icon"><i class="fas fa-desktop"></i></span>
+                        <span class="item">Dashboard</span>
+                    </a>
+                </li>
+                {% url 'seller:products' as url %}
+                <li class="{% if request.path == url %} active {% endif %}">
+                    
+                    <a href="{{url}}">
+                        <span class="icon"><i class="fas fa-chart-line"></i></span>
+                        <span class="item">Products</span>
+                    </a>
+                </li>
+                {% url 'seller:performance' as url %}
+                <li class="{% if request.path == url %} active {% endif %}">
+                    <a href="{{url}}">
+                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+                        <span class="item">Performance</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="{{url}}">
+                        <span class="icon"><i class="fas fa-database"></i></span>
+                        <span class="item">Orders</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-plus"></i></span>
+                            <span class="item">New Orders</span>
+                        </a>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-spinner "></i></span>
+                            <span class="item">Processing</span>
+                        </a>
+                        <a href="#">
+                            <span class="icon"><i class="fas fa-check"></i></span>
+                            <span class="item">Completed</span>
+                        </a>
+                    </div>
+                </li>
+
+
+                {% url 'seller:seller-profile' as url %}
+                <li class="{% if request.path == url %} active {% endif %}">
+                    <a href="{{url}}">
+                        <span class="icon"><i class="fas fa-user-friends"></i></span>
+                        <span class="item">My Profile</span>
+                    </a>
+                </li>
+                {% url 'seller:help-center' as url %}
+                <li class="{% if request.path == url %} active {% endif %}">
+                    <a href="{{url}}">
+                        <span class="icon"><i class="fas fa-user-shield"></i></span>
+                        <span class="item">Help Center</span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="#">
+                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+                        <label for="show" class="show-btn">Log Out</label>
+
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="section">
+            <div class="top_navbar">
+                <div class="hamburger">
+                    <a href="#">
+                        <i class="fas fa-bars"></i>
+
+                    </a>
+                </div>
+                
+            </div>
+            {% block content %}
+
+            {% endblock %}
+
+        </div> 
+
+        
+        </div>
+    </div>
+    <script>
+        var hamburger = document.querySelector(".hamburger");
+        hamburger.addEventListener("click", function () {
+            document.querySelector("body").classList.toggle("active");
+        })
+        function openForm() {
+            document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

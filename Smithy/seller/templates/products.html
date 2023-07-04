@@ -1,0 +1,53 @@
+{% extends 'seller_base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="product" id="product">
+
+    <h1 class="heading">This is <span>Product Page</span></h1>
+
+    <div class="box-container">
+        {% comment %} {% for n in productData %} {% endcomment %}
+        
+        <div class="box">
+            <span class="discount"> -10 %</span>
+            <img src="/{{n.product_image}}" alt="image">
+            <h3>{{n.title}}</h3>
+            <div class="price"> Rs 100 <span> Rs 95 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+
+            </div>
+            <a href="#" class="btn">Order Now</a>
+        </div>
+        <div class="box">
+            <span class="discount"> -10 %</span>
+            <img src="/{{n.product_image}}" alt="image">
+            <h3>{{n.title}}</h3>
+            <div class="price"> Rs 100 <span> Rs 95 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+
+            </div>
+            <a href="#" class="btn">Order Now</a>
+        </div>
+        <div class="box">
+            <span class="discount"> -10 %</span>
+            <img src="/{{n.product_image}}" alt="image">
+            <h3>{{n.title}}</h3>
+            <div class="price"> Rs 100 <span> Rs 95 </span> </div>
+            <div class="quantity">
+                <span>quantity : </span>
+                <input type="number" min="1" max="1000" value="1">
+
+            </div>
+            <a href="#" class="btn">Order Now</a>
+        </div>
+        
+        
+    </div>
+
+</section>
+{% endblock %}

@@ -162,13 +162,6 @@ def show_cart(request):
         value = p.quantity * p.product.discounted_price
         amount = amount + value
     totalamount = amount + shiping_amount
-    #name = request.user
-    #amount = totalamount
-    #client = razorpay.Client(auth=("rzp_test_bWZe5HkNf0YSKY", "igcgehbcVvTyxih0oPf2k9Q3"))
-    #payment = client.order.create({'amount':amount, 'currency':'INR', 'payment_capture':'1'})
-    #print(payment)
-    #pay = Payment(name=name, amount = amount, payment_id = payment['id'])
-    #pay.save()
     return render(request,'shop/cart.html',locals())
 
 
