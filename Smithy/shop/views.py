@@ -144,7 +144,7 @@ def pay_now(request):
         amount = amount + value
     totalamount = amount + shiping_amount
     name = request.user
-    amount = totalamount
+    amount = totalamount * 100
     client = razorpay.Client(auth=("rzp_test_bWZe5HkNf0YSKY", "igcgehbcVvTyxih0oPf2k9Q3"))
     payment = client.order.create({'amount':amount, 'currency':'INR', 'payment_capture':'1'})
     print(payment)
