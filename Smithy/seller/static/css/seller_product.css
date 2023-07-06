@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+
+:root {
+  --green: #27ae60;
+  --black: #2c2c54;
+}
+
+
+
+
+
+
+
+.heading {
+  padding: 2rem;
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.1);
+  /* border: solid .1rem #27ae60; */
+  text-align: center;
+  color: var(--black);
+  /* text-transform: uppercase; */
+  font-size: 3.5rem;
+}
+
+.heading span {
+  position: relative;
+  color: var(--green);
+  /* text-transform: uppercase; */
+}
+.heading .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 40px;
+  background-color: #27ae60;
+  border-radius: 25px;
+}
+
+
+.overflow-scroll,
+.row {
+  padding: 2rem;
+  
+}
+
+.delete_btn {
+  font-size: 2.5rem;
+  color: var(--black);
+  padding-left: 1rem;
+  
+}
+
+.delete_btn:hover {
+  color: var(--green);
+
+}
+
+.quantity {
+  display: flex;
+}
+
+.d-flex {
+  gap: 4.5rem;
+}
+
+.quantity span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+  /* padding-bottom: .5rem; */
+  font-size: 1.8rem;
+  padding: 0 0.7rem;
+}
+
+
+
+

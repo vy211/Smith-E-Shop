@@ -1,53 +1,60 @@
-{% extends 'seller_base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'seller_base.html' %} {% load static %} {% block content %}
 
-<section class="product" id="product">
-
-    <h1 class="heading">This is <span>Product Page</span></h1>
-
-    <div class="box-container">
-        {% comment %} {% for n in productData %} {% endcomment %}
-        
-        <div class="box">
-            <span class="discount"> -10 %</span>
-            <img src="/{{n.product_image}}" alt="image">
-            <h3>{{n.title}}</h3>
-            <div class="price"> Rs 100 <span> Rs 95 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-
+<section>
+  {% if l == 0 %}
+  <div class="heading">Your <span class="title">Cart</span> is Empty .</div>
+  {% else %}
+  <div class="heading">
+    Your
+    <span class="title">products</span>
+  </div>
+  <div class="row">
+    <div class="overflow-scroll" style="max-height: 400px">
+      {% for item in productData %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <div class="d-flex flex-row align-items-center">
+              <div>
+                <img
+                  src="/{{item.product_image}}"
+                  class="img-fluid rounded-3"
+                  alt="Shopping item"
+                  style="width: 65px"
+                />
+              </div>
+              <div class="ms-3">
+                <h3>{{item.name}}</h3>
+              </div>
             </div>
-            <a href="#" class="btn">Order Now</a>
-        </div>
-        <div class="box">
-            <span class="discount"> -10 %</span>
-            <img src="/{{n.product_image}}" alt="image">
-            <h3>{{n.title}}</h3>
-            <div class="price"> Rs 100 <span> Rs 95 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
+            <div class="d-flex align-items-center">
+              <div class="price">
+                <h3 class="mb-0">Rs.<span>{{item.discounted_price}}</span></h3>
+              </div>
+              <button type="submit" style="background: white">
+                <i class="delete_btn fa fa-edit"></i>
+              </button>
 
+              <form action="/seller-delete">
+                <input type="hidden" name="product_id" value="{{item.id}}" />
+                <button type="submit" style=" background: white">
+                  <i class="delete_btn fa fa-trash" ></i>
+                </button>
+              </form>
+              
             </div>
-            <a href="#" class="btn">Order Now</a>
+          </div>
         </div>
-        <div class="box">
-            <span class="discount"> -10 %</span>
-            <img src="/{{n.product_image}}" alt="image">
-            <h3>{{n.title}}</h3>
-            <div class="price"> Rs 100 <span> Rs 95 </span> </div>
-            <div class="quantity">
-                <span>quantity : </span>
-                <input type="number" min="1" max="1000" value="1">
-
-            </div>
-            <a href="#" class="btn">Order Now</a>
-        </div>
-        
-        
+      </div>
+      {% endfor %}
     </div>
+  </div>
+  <div class="heading">
+    
 
+    <a href="{% url 'seller:add-products' %}" class="btn">Add Product</a>
+  </div>
+
+  {% endif %}
 </section>
 {% endblock %}
