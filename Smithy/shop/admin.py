@@ -10,10 +10,10 @@ from shop.models import Product
 
 
 # @admin.register(Product)
-class ProductModelAdmid(admin.ModelAdmin):
-    list_display = ('id', 'title', 'discounted_price', 'selling_price', 'percentage',
-                    'category', 'product_image')
 
+class ProductModelAdmid(admin.ModelAdmin):
+    list_display = ('title', 'price', 'discount','discounted_price','description',
+                    'category', 'product_image','quantity','seller','seller_email')
 
 admin.site.register(Product, ProductModelAdmid)
 

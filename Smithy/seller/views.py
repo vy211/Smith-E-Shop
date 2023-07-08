@@ -34,28 +34,30 @@ def seller_delete(request):
     messages.success(request, "Your item deleted from cart !!")
     return redirect('/products')
 
+
 def add_products(request):
-    return render(request,'add_products.html')
+    current_user = request.user.username
+    current_user_email = request.user.email
 
-
-
-def add(request):
-   
     if request.method == "POST":
-        name = request.POST.get('name')
-        price = request.POST.get('price')
-        discount = request.POST.get('discount')
-        quantity = request.POST.get('quantity')
-        image = request.FILES.get('image')
-        description = request.POST.get('description')
-
+        name = request.POST.get('pname')
+        price = request.POST.get('pprice')
+        discount = request.POST.get('pdiscount')
+        category = request.POST.get('pcategory')
+        quantity = request.POST.get('pquantity')
+        image_file = request.FILES.get('pimg')
+        description = request.POST.get('pdescription')
         new_product = Product.objects.create(
             name=name,
             price=price,
             discount=discount,
             quantity=quantity,
-            image=image,
-            description=description
+            category=category,
+            product_image=image_file,
+            description=description,
+            seller = current_user,
+            seller_email= current_user_email
         )
         new_product.save()
-    return redirect('/add-products')
+        return redirect('/products')
+    return render(request, "add_products.html")

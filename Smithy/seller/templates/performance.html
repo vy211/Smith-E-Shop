@@ -2,10 +2,39 @@
 {% load static %}
 {% block content %}
 
+<div class="top_navbar">
+    <div class="col-auto hamburger">
+      <a href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+    </div>
+    <div class="col text-center">
+      <h1>Your <span class="text-success">Performance</span></h1>
+    </div>
+  </div>
+
 <section class="product" id="product">
 
-    <h1 class="heading">This is <span>Performance Page</span></h1>
-
+    
+    <div class="row mb-4">
+        <div class="col-lg-6">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Product Performance</h5>
+                <canvas id="productPerformanceChart"></canvas>
+              </div>
+            </div>
+          </div>
+        <div class="col-lg-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Sales Analytics</h5>
+              <canvas id="salesChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     
 
 </section>

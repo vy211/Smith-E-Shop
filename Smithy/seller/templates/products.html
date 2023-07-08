@@ -1,13 +1,18 @@
 {% extends 'seller_base.html' %} {% load static %} {% block content %}
 
-<section>
-  {% if l == 0 %}
-  <div class="heading">Your <span class="title">Cart</span> is Empty .</div>
-  {% else %}
-  <div class="heading">
-    Your
-    <span class="title">products</span>
+<div class="top_navbar">
+  <div class="col-auto hamburger">
+    <a href="#">
+      <i class="fas fa-bars"></i>
+    </a>
   </div>
+  <div class="col text-center">
+    <h1 >Your <span class="text-success">Products</span></h1>
+  </div>
+</div>
+
+<section>
+  
   <div class="row">
     <div class="overflow-scroll" style="max-height: 400px">
       {% for item in productData %}
@@ -37,11 +42,10 @@
 
               <form action="/seller-delete">
                 <input type="hidden" name="product_id" value="{{item.id}}" />
-                <button type="submit" style=" background: white">
-                  <i class="delete_btn fa fa-trash" ></i>
+                <button type="submit" style="background: white">
+                  <i class="delete_btn fa fa-trash"></i>
                 </button>
               </form>
-              
             </div>
           </div>
         </div>
@@ -50,11 +54,7 @@
     </div>
   </div>
   <div class="heading">
-    
-
     <a href="{% url 'seller:add-products' %}" class="btn">Add Product</a>
   </div>
-
-  {% endif %}
 </section>
 {% endblock %}

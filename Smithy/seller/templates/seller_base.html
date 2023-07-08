@@ -1,133 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     {% load static %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/static/css/seller_base.css" />
     <link rel="stylesheet" href="/static/css/seller_product.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    
-</head>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
+  </head>
 
-<body>
-
+  <body>
     <div class="wrapper">
-        <!--Top menu -->
-        <div class="sidebar">
-            <!--profile image & text-->
-            <div class="profile">
-                <img src="/static/photo/Photo.jpg" alt="profile_picture">
-                <h3>Sandeep Kumar Singh</h3>
-                <p>Designer</p>
-            </div>
-            <!--menu item-->
-            <ul class="list-unstyled">
-                
-                {% url 'seller:dashboard' as url %}
-                <li class="{% if request.path == url %} active {% endif %}">
-                    <a href="{{url}}">
-                        <span class="icon"><i class="fas fa-desktop"></i></span>
-                        <span class="item">Dashboard</span>
-                    </a>
-                </li>
-                {% url 'seller:products' as url %}
-                <li class="{% if request.path == url %} active {% endif %}">
-                    
-                    <a href="{{url}}">
-                        <span class="icon"><i class="fas fa-chart-line"></i></span>
-                        <span class="item">Products</span>
-                    </a>
-                </li>
-                {% url 'seller:performance' as url %}
-                <li class="{% if request.path == url %} active {% endif %}">
-                    <a href="{{url}}">
-                        <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
-                        <span class="item">Performance</span>
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="{{url}}">
-                        <span class="icon"><i class="fas fa-database"></i></span>
-                        <span class="item">Orders</span>
-                    </a>
-                    <div class="dropdown-content">
-                        <a href="#">
-                            <span class="icon"><i class="fas fa-plus"></i></span>
-                            <span class="item">New Orders</span>
-                        </a>
-                        <a href="#">
-                            <span class="icon"><i class="fas fa-spinner "></i></span>
-                            <span class="item">Processing</span>
-                        </a>
-                        <a href="#">
-                            <span class="icon"><i class="fas fa-check"></i></span>
-                            <span class="item">Completed</span>
-                        </a>
-                    </div>
-                </li>
+      <!--Top menu -->
+      <div class="sidebar">
+        <!--profile image & text-->
+        <div class="profile">
+          <img src="/static/photo/Photo.jpg" alt="profile_picture" />
+          {% comment %} <i class="fas fa-user fa-10x"></i> {% endcomment %}
+          <h3>{{user.username}}</h3>
 
-
-                {% url 'seller:seller-profile' as url %}
-                <li class="{% if request.path == url %} active {% endif %}">
-                    <a href="{{url}}">
-                        <span class="icon"><i class="fas fa-user-friends"></i></span>
-                        <span class="item">My Profile</span>
-                    </a>
-                </li>
-                {% url 'seller:help-center' as url %}
-                <li class="{% if request.path == url %} active {% endif %}">
-                    <a href="{{url}}">
-                        <span class="icon"><i class="fas fa-user-shield"></i></span>
-                        <span class="item">Help Center</span>
-                    </a>
-                </li>
-                
-                <li>
-                    <a href="#">
-                        <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
-                        <label for="show" class="show-btn">Log Out</label>
-
-                    </a>
-                </li>
-            </ul>
+          <p>Designer</p>
         </div>
-        <div class="section">
-            <div class="top_navbar">
-                <div class="hamburger">
-                    <a href="#">
-                        <i class="fas fa-bars"></i>
 
-                    </a>
-                </div>
-                
+        <!--menu item-->
+        <ul class="list-unstyled">
+          {% url 'seller:dashboard' as url %}
+          <li class="{% if request.path == url %} active {% endif %}">
+            <a href="{{url}}">
+              <span class="icon"><i class="fas fa-desktop"></i></span>
+              <span class="item">Dashboard</span>
+            </a>
+          </li>
+          {% url 'seller:products' as url %}
+          <li class="{% if request.path == url %} active {% endif %}">
+            <a href="{{url}}">
+              <span class="icon"><i class="fas fa-chart-line"></i></span>
+              <span class="item">Products</span>
+            </a>
+          </li>
+          {% url 'seller:performance' as url %}
+          <li class="{% if request.path == url %} active {% endif %}">
+            <a href="{{url}}">
+              <span class="icon"><i class="fas fa-tachometer-alt"></i></span>
+              <span class="item">Performance</span>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="{{url}}">
+              <span class="icon"><i class="fas fa-database"></i></span>
+              <span class="item">Orders</span>
+            </a>
+            <div class="dropdown-content">
+              <a href="#">
+                <span class="icon"><i class="fas fa-plus"></i></span>
+                <span class="item">New Orders</span>
+              </a>
+              <a href="#">
+                <span class="icon"><i class="fas fa-spinner"></i></span>
+                <span class="item">Processing</span>
+              </a>
+              <a href="#">
+                <span class="icon"><i class="fas fa-check"></i></span>
+                <span class="item">Completed</span>
+              </a>
             </div>
-            {% block content %}
+          </li>
 
-            {% endblock %}
+          {% url 'seller:seller-profile' as url %}
+          <li class="{% if request.path == url %} active {% endif %}">
+            <a href="{{url}}">
+              <span class="icon"><i class="fas fa-user-friends"></i></span>
+              <span class="item">My Profile</span>
+            </a>
+          </li>
+          {% url 'seller:help-center' as url %}
+          <li class="{% if request.path == url %} active {% endif %}">
+            <a href="{{url}}">
+              <span class="icon"><i class="fas fa-user-shield"></i></span>
+              <span class="item">Help Center</span>
+            </a>
+          </li>
 
-        </div> 
-
-        
-        </div>
+          <li>
+            <a href="#">
+              <span class="icon"><i class="fas fa-sign-out-alt"></i></span>
+              <label for="show" class="show-btn">Log Out</label>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="section">{% block content %} {% endblock %}</div>
     </div>
     <script>
-        var hamburger = document.querySelector(".hamburger");
-        hamburger.addEventListener("click", function () {
-            document.querySelector("body").classList.toggle("active");
-        })
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-        }
+      var hamburger = document.querySelector(".hamburger");
+      hamburger.addEventListener("click", function () {
+        document.querySelector("body").classList.toggle("active");
+      });
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
 
-        function closeForm() {
-            document.getElementById("myForm").style.display = "none";
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+
+      // Sales Analytics Chart
+      var ctx = document.getElementById("salesChart").getContext("2d");
+      var salesChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["January", "February", "March", "April", "May", "June"],
+          datasets: [
+            {
+              label: "Sales",
+              data: [5000, 6000, 4500, 7000, 8000, 5500],
+              backgroundColor: "#27ae60",
+              borderColor: "#2c2c54",
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+       // Product Performance Chart
+    var ctx = document.getElementById('productPerformanceChart').getContext('2d');
+    var productPerformanceChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Product A', 'Product B', 'Product C', 'Product D', 'Product E'],
+        datasets: [{
+          label: 'Sales',
+          data: [100, 80, 120, 90, 110],
+          backgroundColor: "#27ae60",
+              borderColor: "#2c2c54",
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
-        
+      }
+    });
     </script>
-</body>
-
+  </body>
 </html>
